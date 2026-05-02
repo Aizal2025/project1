@@ -1,0 +1,258 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Proza+Libre&display=swap');
+
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===== BODY ===== */
+body {
+  font-family: 'Proza Libre', sans-serif;
+  background: #0f0f0f;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* ===== HERO (HOME + END) ===== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
+
+/* ===== MAIN HEADING ===== */
+.hero h1 {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: clamp(2rem, 6vw, 5rem);
+  color: #2ecc71;
+  filter: drop-shadow(0 0 5px #2ecc71);
+}
+
+/* blinking cursor */
+.hero h1::after {
+  content: '';
+  display: inline-block;
+  width: .2em;
+  height: .7em;
+  background: currentColor;
+  margin-left: .1em;
+  animation: blink 1s infinite;
+}
+
+/* ===== SUBTEXT ===== */
+.subtitle {
+  font-size: 18px;
+  color: #bbb;
+  margin-top: 10px;
+}
+
+.description {
+  max-width: 600px;
+  font-size: 15px;
+  color: #aaa;
+  margin-top: 15px;
+  line-height: 1.6;
+}
+
+/* ===== GRID BACKGROUND ===== */
+.grid-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+/* ===== BUTTON ===== */
+.wrapper {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.link_wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.link_wrapper a {
+  display: block;
+  width: 220px;
+  height: 50px;
+  line-height: 50px;
+  background: #333;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  border: 2px solid #333;
+  transition: .3s;
+}
+
+.link_wrapper .icon {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: rotate(45deg);
+  border: 2px solid transparent;
+  transition: .3s;
+}
+
+.link_wrapper .icon svg {
+  width: 25px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  fill: #2ecc71;
+}
+
+/* hover */
+.link_wrapper a:hover {
+  background: transparent;
+  border-color: #2ecc71;
+  color: #2ecc71;
+}
+
+.link_wrapper a:hover + .icon {
+  border-color: #2ecc71;
+  right: -20%;
+}
+
+/* ===== TIMELINE (BIO PAGE) ===== */
+.page-title {
+  text-align: center;
+  margin: 30px 0;
+  font-size: clamp(22px, 3vw, 32px);
+}
+
+.timeline {
+  max-width: 900px;
+  margin: auto;
+  padding: 40px 20px;
+}
+
+.timeline article {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-bottom: 50px;
+  align-items: center;
+}
+
+/* image */
+.timeline img {
+  width: 100%;
+  max-width: 350px;
+  margin: auto;
+  border-radius: 10px;
+  border: 2px solid #2ecc71;
+}
+
+/* content */
+.timeline__content {
+  padding: 20px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 10px;
+}
+
+.timeline h2 {
+  font-size: clamp(18px, 2vw, 24px);
+  color: #88d55e;
+}
+
+.timeline p {
+  font-size: clamp(14px, 1.5vw, 18px);
+  line-height: 1.6;
+}
+
+/* ===== SOCIAL ICONS ===== */
+.social-icons {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.icon-circle {
+  display: inline-block;
+  margin: 10px;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 50%;
+  text-align: center;
+  color: white;
+  transition: 0.3s;
+}
+
+.insta { background:#e1306c; }
+.linkedin { background:#0077b5; }
+.github { background:#333; }
+.pinterest { background:#E60023; }
+
+.icon-circle:hover {
+  transform: scale(1.1);
+}
+
+/* ===== FOOTER ===== */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #111;
+  margin-top: 40px;
+}
+
+.footer-text {
+  font-size: 14px;
+  color: #aaa;
+  margin-top: 10px;
+}
+
+.quote {
+  font-size: 13px;
+  color: #777;
+  margin-top: 8px;
+}
+
+/* ===== CURTAIN ===== */
+.curtain {
+  position: fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background: rgba(0,0,0,0.95);
+  z-index:9999;
+  animation: curtainUp 1.5s forwards;
+}
+
+@keyframes curtainUp {
+  to { transform: translateY(-100%); }
+}
+
+/* ===== ANIMATION ===== */
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .timeline article {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .link_wrapper a {
+    width: 180px;
+  }
+}
